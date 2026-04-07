@@ -1,22 +1,17 @@
-// Last updated: 07/04/2026, 09:32:17
+// Last updated: 07/04/2026, 10:35:48
 1class Solution {
 2public:
-3    int majorityElement(vector<int>& nums) {
-4        int candidate = 0;
-5        int count = 0;
-6
-7        for (int num : nums) {
-8            if (count == 0) {
-9                candidate = num;
-10            }
+3    void moveZeroes(vector<int>& nums) {
+4        int j = 0;
+5
+6        for (int i = 0; i < nums.size(); i++) {
+7            if (nums[i] != 0) {
+8                nums[j++] = nums[i];
+9            }
+10        }
 11
-12            if (num == candidate) {
-13                count++;
-14            } else {
-15                count--;
-16            }
-17        }
-18
-19        return candidate;
-20    }
-21};
+12        while (j < nums.size()) {
+13            nums[j++] = 0;
+14        }
+15    }
+16};
