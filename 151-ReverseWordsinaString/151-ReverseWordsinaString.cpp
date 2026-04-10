@@ -1,4 +1,4 @@
-// Last updated: 10/04/2026, 15:37:00
+// Last updated: 10/04/2026, 15:57:29
 1class Solution {
 2public:
 3    string reverseWords(string s) {
@@ -15,7 +15,7 @@
 14                temp += s[i];
 15            }
 16        }
-17
+17// edge case
 18        if (!temp.empty()) {
 19            words.push_back(temp);
 20        }
