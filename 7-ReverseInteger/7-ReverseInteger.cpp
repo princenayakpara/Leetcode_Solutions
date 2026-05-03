@@ -1,19 +1,13 @@
-// Last updated: 03/05/2026, 22:29:36
+// Last updated: 03/05/2026, 22:34:56
 1class Solution {
 2public:
-3    int reverse(int x) {
-4        int rev = 0;
+3    int singleNumber(vector<int>& nums) {
+4        int result = 0;
 5
-6        while (x != 0) {
-7            int digit = x % 10;
-8            x = x / 10;
+6        for (int num : nums) {
+7            result ^= num;
+8        }
 9
-10            if (rev > INT_MAX / 10 || rev < INT_MIN / 10)
-11                return 0;
-12
-13            rev = rev * 10 + digit;
-14        }
-15
-16        return rev;
-17    }
-18};
+10        return result;
+11    }
+12};
