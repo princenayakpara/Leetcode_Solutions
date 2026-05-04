@@ -1,13 +1,25 @@
-// Last updated: 05/05/2026, 01:05:06
-1class Solution {
-2public:
-3    string reversePrefix(string word, char ch) {
-4        for(int i = 0; i < word.length(); i++){
-5            if(word[i] == ch){
-6                reverse(word.begin(), word.begin() + i + 1);
-7                break;
-8            }
-9        }
-10        return word;
-11    }
-12};
+// Last updated: 05/05/2026, 01:06:45
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+class Solution {
+public:
+    /**
+     * Reverses the prefix of the word up to the first occurrence of 'ch'.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary
+     */
+    string reversePrefix(string word, char ch) {
+        // Find the index of the first occurrence of 'ch'
+        size_t index = word.find(ch);
+        
+        // If the character is found, reverse the segment in-place
+        if (index != string::npos) {
+            reverse(word.begin(), word.begin() + index + 1);
+        }
+        
+        return word;
+    }
+};
