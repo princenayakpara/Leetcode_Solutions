@@ -1,17 +1,16 @@
-// Last updated: 01/05/2026, 16:39:44
+// Last updated: 05/05/2026, 16:06:53
 1class Solution {
 2public:
 3    string defangIPaddr(string address) {
-4        string result = "";
-5        
-6        for (char c : address) {
-7            if (c == '.') {
-8                result += "[.]";
-9            } else {
-10                result += c;
+4        string result;
+5        for(char c : address){
+6            if(c=='.'){
+7                result+="[.]";
+8            }
+9            else{
+10                result+=c;
 11            }
 12        }
-13        
-14        return result;
-15    }
-16};
+13            return result;
+14        }
+15};
