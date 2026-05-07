@@ -1,23 +1,31 @@
-// Last updated: 09/04/2026, 10:33:23
+// Last updated: 07/05/2026, 21:57:26
 1class Solution {
 2public:
-3    string reverseOnlyLetters(string s) {
-4        int left = 0, right = s.size() - 1;
+3    string capitalizeTitle(string title) {
+4        int n = title.size();
 5
-6        while (left < right) {
-7            if (!isalpha(s[left])) {
-8                left++;
-9            } 
-10            else if (!isalpha(s[right])) {
-11                right--;
-12            } 
-13            else {
-14                swap(s[left], s[right]);
-15                left++;
-16                right--;
+6        for (char &c : title) {
+7            c = tolower(c);
+8        }
+9
+10        int i = 0;
+11
+12        while (i < n) {
+13            int start = i;
+14
+15            while (i < n && title[i] != ' ') {
+16                i++;
 17            }
-18        }
-19        
-20        return s;
-21    }
-22};
+18
+19            int len = i - start;
+20
+21            if (len > 2) {
+22                title[start] = toupper(title[start]);
+23            }
+24
+25            i++;
+26        }
+27
+28        return title;
+29    }
+30};
