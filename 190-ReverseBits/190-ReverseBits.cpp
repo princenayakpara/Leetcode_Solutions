@@ -1,14 +1,24 @@
-// Last updated: 08/05/2026, 21:57:46
+// Last updated: 08/05/2026, 22:36:55
 1class Solution {
 2public:
-3    uint32_t reverseBits(uint32_t n) {
-4        uint32_t rev = 0;
-5
-6        for(int i = 0; i < 32; i++) {
-7            rev = (rev << 1) | (n & 1);
-8            n >>= 1;
-9        }
-10
-11        return rev;
-12    }
-13};
+3    string addBinary(string a, string b) {
+4        string ans = "";
+5        int i = a.size() - 1;
+6        int j = b.size() - 1;
+7        int carry = 0;
+8
+9        while(i >= 0 || j >= 0 || carry) {
+10            int sum = carry;
+11
+12            if(i >= 0) sum += a[i--] - '0';
+13            if(j >= 0) sum += b[j--] - '0';
+14
+15            ans += (sum % 2) + '0';
+16            carry = sum / 2;
+17        }
+18
+19        reverse(ans.begin(), ans.end());
+20        return ans;
+21    }
+22};
+23
