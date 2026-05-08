@@ -1,14 +1,15 @@
-// Last updated: 09/05/2026, 02:12:04
+// Last updated: 09/05/2026, 02:17:34
 1class Solution {
 2public:
-3    bool isPowerOfFour(int n) {
-4        while(n > 1) {
-5            if(n % 4 != 0) {
-6                return false;
-7            }
-8            n /= 4;
-9        }
-10
-11        return n == 1;
-12    }
-13};
+3    int arrangeCoins(int n) {
+4        long long sum = 0;
+5        int row = 0;
+6
+7        while(sum + row + 1 <= n) {
+8            row++;
+9            sum += row;
+10        }
+11
+12        return row;
+13    }
+14};
