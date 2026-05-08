@@ -1,27 +1,38 @@
-// Last updated: 08/05/2026, 13:32:13
+// Last updated: 08/05/2026, 15:59:20
 1class Solution {
 2public:
-3    int getLucky(string s, int k) {
-4        string num = "";
+3    int minMaxDifference(int num) {
+4        string s = to_string(num);
 5
-6        // Convert characters to their alphabet positions
-7        for(char c : s) {
-8            num += to_string(c - 'a' + 1);
-9        }
-10
-11        int sum = 0;
-12
-13        // Perform transformation k times
-14        while(k--) {
-15            sum = 0;
+6        // Make maximum number
+7        string maxi = s;
+8        char chMax = 0;
+9
+10        for(char c : s) {
+11            if(c != '9') {
+12                chMax = c;
+13                break;
+14            }
+15        }
 16
-17            for(char c : num) {
-18                sum += c - '0';
-19            }
-20
-21            num = to_string(sum);
-22        }
-23
-24        return sum;
-25    }
-26};
+17        if(chMax) {
+18            for(char &c : maxi) {
+19                if(c == chMax) {
+20                    c = '9';
+21                }
+22            }
+23        }
+24
+25        // Make minimum number
+26        string mini = s;
+27        char chMin = s[0];
+28
+29        for(char &c : mini) {
+30            if(c == chMin) {
+31                c = '0';
+32            }
+33        }
+34
+35        return stoi(maxi) - stoi(mini);
+36    }
+37};
