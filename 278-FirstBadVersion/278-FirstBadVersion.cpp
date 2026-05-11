@@ -1,8 +1,13 @@
-// Last updated: 11/05/2026, 10:01:42
+// Last updated: 11/05/2026, 10:11:09
 1class Solution {
 2public:
-3    bool isPerfectSquare(int num) {
-4        int x = sqrt(num);
-5        return x * x == num;
-6    }
-7};
+3    bool isUgly(int n) {
+4        if(n <= 0) return false;
+5
+6        while(n % 2 == 0) n /= 2;
+7        while(n % 3 == 0) n /= 3;
+8        while(n % 5 == 0) n /= 5;
+9
+10        return n == 1;
+11    }
+12};
