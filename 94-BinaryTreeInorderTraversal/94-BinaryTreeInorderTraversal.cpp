@@ -1,4 +1,4 @@
-// Last updated: 13/05/2026, 15:53:33
+// Last updated: 13/05/2026, 15:56:10
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -12,18 +12,14 @@
 11 */
 12class Solution {
 13public:
-14    vector<int> ans;
-15
-16    void inorder(TreeNode* root) {
-17        if (!root) return;
+14    bool isSameTree(TreeNode* p, TreeNode* q) {
+15        if (!p && !q) return true;
+16
+17        if (!p || !q) return false;
 18
-19        inorder(root->left);
-20        ans.push_back(root->val);
-21        inorder(root->right);
-22    }
-23
-24    vector<int> inorderTraversal(TreeNode* root) {
-25        inorder(root);
-26        return ans;
-27    }
-28};
+19        if (p->val != q->val) return false;
+20
+21        return isSameTree(p->left, q->left) &&
+22               isSameTree(p->right, q->right);
+23    }
+24};
