@@ -1,30 +1,40 @@
-// Last updated: 19/05/2026, 10:56:01
-1class Solution {
-2public:
-3    string categorizeBox(int length, int width, int height, int mass) {
-4        bool bulky = false;
-5        bool heavy = false;
-6
-7        long long volume = 1LL * length * width * height;
-8
-9        if (length >= 10000 || width >= 10000 || height >= 10000 || volume >= 1000000000) {
-10            bulky = true;
-11        }
-12
-13        if (mass >= 100) {
-14            heavy = true;
-15        }
-16
-17        if (bulky && heavy) {
-18            return "Both";
-19        }
-20        else if (!bulky && !heavy) {
-21            return "Neither";
-22        }
-23        else if (bulky) {
-24            return "Bulky";
-25        }
+// Last updated: 19/05/2026, 11:44:15
+1/**
+2 * Definition for singly-linked list.
+3 * struct ListNode {
+4 *     int val;
+5 *     ListNode *next;
+6 *     ListNode() : val(0), next(nullptr) {}
+7 *     ListNode(int x) : val(x), next(nullptr) {}
+8 *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+9 * };
+10 */
+11class Solution {
+12public:
+13    ListNode* reverseKGroup(ListNode* head, int k) {
+14        ListNode* curr = head;
+15
+16        // Check if there are at least k nodes
+17        int count = 0;
+18        while (curr && count < k) {
+19            curr = curr->next;
+20            count++;
+21        }
+22
+23        // If we have k nodes, reverse them
+24        if (count == k) {
+25            curr = reverseKGroup(curr, k);
 26
-27        return "Heavy";
-28    }
-29};
+27            while (count--) {
+28                ListNode* temp = head->next;
+29                head->next = curr;
+30                curr = head;
+31                head = temp;
+32            }
+33
+34            head = curr;
+35        }
+36
+37        return head;
+38    }
+39};
