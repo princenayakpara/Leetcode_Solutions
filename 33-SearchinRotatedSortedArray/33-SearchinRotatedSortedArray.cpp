@@ -1,23 +1,17 @@
-// Last updated: 22/05/2026, 00:05:21
+// Last updated: 22/05/2026, 00:18:57
 1class Solution {
 2public:
-3    int singleNumber(vector<int>& nums) {
-4        if(nums.size() == 1) return nums[0];
-5        sort(nums.begin(), nums.end());
-6        if(nums[0] != nums[1]){
-7            return nums[0];
-8        }
-9        if(nums[nums.size() - 1]!= nums[nums.size() -2]){
-10            return nums[nums.size() - 1];
-11        }
-12        for(int i = 0; i< nums.size() - 1; i++){
-13            if(nums[i] == nums[i+1] || nums[i] == nums[i-1]){
-14                continue;
-15            }
-16            else{
-17                return nums[i];
-18            }
-19        }
-20        return -1;
-21    }
-22};
+3    vector<int> singleNumber(vector<int>& nums) {
+4       map<int, int>m;
+5       vector<int> arr;
+6       for(int i=0; i<nums.size(); i++){
+7        m[nums[i]]++;
+8       }
+9       for(auto i : m){
+10        if(i.second == 1){
+11            arr.push_back(i.first);
+12        }
+13       }
+14       return arr;
+15    }
+16};
