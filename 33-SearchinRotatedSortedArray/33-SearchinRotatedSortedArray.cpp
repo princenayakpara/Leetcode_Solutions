@@ -1,17 +1,12 @@
-// Last updated: 22/05/2026, 00:18:57
+// Last updated: 22/05/2026, 21:43:12
 1class Solution {
 2public:
-3    vector<int> singleNumber(vector<int>& nums) {
-4       map<int, int>m;
-5       vector<int> arr;
-6       for(int i=0; i<nums.size(); i++){
-7        m[nums[i]]++;
-8       }
-9       for(auto i : m){
-10        if(i.second == 1){
-11            arr.push_back(i.first);
-12        }
-13       }
-14       return arr;
-15    }
-16};
+3    int search(vector<int>& nums, int target) {
+4        for(int i = 0; i<nums.size(); i++){
+5            if(nums[i] == target){
+6                return i;
+7            }
+8        }
+9        return -1;
+10    }
+11};
