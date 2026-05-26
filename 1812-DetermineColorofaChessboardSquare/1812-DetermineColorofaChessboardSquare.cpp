@@ -1,23 +1,14 @@
-// Last updated: 27/05/2026, 02:47:33
-1/**
-2 * Definition for singly-linked list.
-3 * struct ListNode {
-4 *     int val;
-5 *     ListNode *next;
-6 *     ListNode() : val(0), next(nullptr) {}
-7 *     ListNode(int x) : val(x), next(nullptr) {}
-8 *     ListNode(int x, ListNode *next) : val(x), next(next) {}
-9 * };
-10 */
-11class Solution {
-12public:
-13    ListNode* middleNode(ListNode* head) {
-14        ListNode* slow = head;
-15        ListNode* fast = head;
-16        while(fast!=nullptr && fast->next!=nullptr){
-17            slow=slow->next;
-18            fast=fast->next->next;
-19        }
-20        return slow;
-21    }
-22};
+// Last updated: 27/05/2026, 02:53:58
+1class Solution {
+2public:
+3    bool judgeCircle(string moves) {
+4        int x =0, y = 0;
+5        for(char c: moves){
+6            if(c=='U')y++;
+7            else if(c=='D')y--;
+8            else if(c=='R')x++;
+9            else if(c=='L')x--;
+10        }
+11        return x == 0 && y == 0;
+12    }
+13};
