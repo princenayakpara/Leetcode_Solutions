@@ -1,10 +1,11 @@
-// Last updated: 26/05/2026, 18:21:41
+// Last updated: 26/05/2026, 18:26:55
 1class Solution {
 2public:
-3    string replaceDigits(string s) {
-4         for(int i =1; i<s.size(); i+=2){
-5            s[i]=s[i-1]+(s[i]-'0');
-6         }
-7         return s;
-8    }
-9};
+3    string reversePrefix(string word, char ch) {
+4        int idx = word.find(ch);
+5        if(idx != string::npos){
+6            reverse(word.begin(), word.begin() + idx + 1);
+7        }
+8        return word;
+9    }
+10};
