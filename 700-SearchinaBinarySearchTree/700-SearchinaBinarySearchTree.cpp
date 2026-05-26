@@ -1,4 +1,4 @@
-// Last updated: 05/05/2026, 01:13:09
+// Last updated: 27/05/2026, 02:11:29
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -13,11 +13,11 @@
 12class Solution {
 13public:
 14    TreeNode* searchBST(TreeNode* root, int val) {
-15        while(root != NULL){
-16            if(root->val == val) return root;
-17            else if(val < root->val) root = root->left;
-18            else root = root->right;
-19        }
-20        return NULL;
+15       if(root == nullptr) return nullptr;
+16       if(root->val==val)return root;
+17       if(val<root->val)
+18        return searchBST(root->left,val);
+19        else
+20        return searchBST(root->right,val);
 21    }
 22};
