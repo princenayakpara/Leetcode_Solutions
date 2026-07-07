@@ -1,29 +1,22 @@
-// Last updated: 07/07/2026, 19:03:57
+// Last updated: 07/07/2026, 19:05:44
 1class Solution {
 2public:
-3    bool check(string &s, int left, int right) {
-4        while (left < right) {
-5            if (s[left] != s[right])
-6                return false;
-7            left++;
-8            right--;
-9        }
-10        return true;
-11    }
-12
-13    bool validPalindrome(string s) {
-14        int left = 0;
-15        int right = s.size() - 1;
-16
-17        while (left < right) {
-18            if (s[left] != s[right]) {
-19                return check(s, left + 1, right) ||
-20                       check(s, left, right - 1);
-21            }
-22            left++;
-23            right--;
-24        }
-25
-26        return true;
-27    }
-28};
+3    bool valid(string& s,int l,int r){
+4        while(l<r){
+5            if(s[l]!=s[r])return false;
+6            l++;
+7            r--;
+8        }
+9        return true;
+10    }
+11    bool validPalindrome(string s) {
+12        int l=0,r=s.size()-1;
+13        while(l<r){
+14            if(s[l]!=s[r])return valid(s,l+1,r)||valid(s,l,r-1);
+15            l++;
+16            r--;
+17        }
+18        return true;
+19    
+20    }
+21};
