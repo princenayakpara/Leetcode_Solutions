@@ -1,10 +1,10 @@
-// Last updated: 28/07/2026, 15:03:29
+// Last updated: 28/07/2026, 15:04:33
 1class Solution {
 2public:
 3    int differenceOfSum(vector<int>& nums) {
 4        int elementSum = 0, digitSum = 0;
-5
-6        for (int num : nums) {
+5        vector<int> n = nums;
+6        for (int num : n) {
 7            elementSum += num;
 8
 9            int x = num;
