@@ -1,4 +1,4 @@
-// Last updated: 21/08/2026, 15:12:29
+// Last updated: 21/08/2026, 15:14:50
 1class Solution {
 2public:
 3    bool hasCycle(ListNode *head) {
